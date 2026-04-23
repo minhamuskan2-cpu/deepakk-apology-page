@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deepak, I'm Really Sorry 💔</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;600;700&display=swap');
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Poppins', sans-serif; 
+            min-height: 100vh; 
+            overflow-x: hidden; 
+            position: relative;
+            background: linear-gradient(135deg, #ae869a 0%, #9b6787 100%);
+        }
+        
+        .particles {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+            pointer-events: none; z-index: 1;
+        }
+        .particle {
+            position: absolute; width: 10px; height: 10px; 
+            background: #9c0a3b; border-radius: 50%;
+            animation: float 10s infinite linear;
+        }
+        @keyframes float {
+            0% { transform: translateY(100vh) scale(0); opacity: 1; }
+            100% { transform: translateY(-100px) scale(2); opacity: 0; }
+        }
+        
+        .page { 
+            display: flex; justify-content: center; align-items: center; 
+            min-height: 100vh; padding: 2rem; text-align: center;
+            position: relative; z-index: 2;
+        }
+        .container {
+            background: rgba(255,255,255,0.95); 
+            padding: 3rem 2.5rem; border-radius: 30px;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.3);
+            max-width: 550px; backdrop-filter: blur(20px);
+            animation: fadeInUp 1.2s ease-out;
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(60px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .heart-big { font-size: 6rem; color: #ff6b9d; animation: heartbeat 1.8s ease-in-out infinite; }
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+        
+        h1 { font-family: 'Dancing Script', cursive; font-size: 3.8rem; color: #333; margin: 1rem 0; }
+        .name { color: #ff6b9d; font-weight: 700; text-shadow: 2px 2px 4px rgba(0,0,0,0.1); }
+        
+        .glow-text { 
+            font-family: 'Dancing Script', cursive; font-size: 2.8rem; 
+            background: linear-gradient(45deg, #ff6b9d, #e91e63); 
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            margin: 2rem 0; animation: glow 2.5s ease-in-out infinite alternate;
+        }
+        @keyframes glow { 
+            from { filter: drop-shadow(0 0 10px #ff6b9d); }
+            to { filter: drop-shadow(0 0 25px #ff6b9d); }
+        }
+        
+        .message { 
+            font-size: 1.4rem; color: #555; line-height: 1.7; 
+            margin: 2rem 0; font-weight: 300;
+        }
+        
+        .btn {
+            background: linear-gradient(45deg, #ff6b9d, #ff8e8e); 
+            color: white; border: none; padding: 20px 60px; 
+            font-size: 1.3rem; border-radius: 50px; cursor: pointer;
+            transition: all 0.4s ease; font-weight: 600;
+            box-shadow: 0 20px 40px rgba(255,107,157,0.4);
+            margin: 1rem 0.5rem; text-decoration: none; display: inline-block;
+        }
+        .btn:hover {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 25px 50px rgba(255,107,157,0.6);
+        }
+        .btn-secondary { background: linear-gradient(45deg, #667eea, #764ba2); }
+        
+        /* Photo Styles */
+        .photo-gallery {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem; margin: 2rem 0;
+        }
+        .photo-frame {
+            width: 200px; height: 200px; border-radius: 20px;
+            overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            transition: all 0.4s ease; cursor: pointer; margin: 0 auto;
+            animation: photoFloat 3s ease-in-out infinite;
+        }
+        .photo-frame:hover { transform: scale(1.1) rotate(2deg); }
+        @keyframes photoFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        .photo-frame img { width: 100%; height: 100%; object-fit: cover; }
+        
+        .hidden { display: none !important; }
+        
+        /* Page Specific Backgrounds */
+        .page1 { background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%); }
+        .page2 { background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); }
+        .page3 { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .page4 { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
+        .page5 { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
+        .page6 { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); }
+        
+        @media (max-width: 480px) {
+            h1 { font-size: 2.8rem; }
+            .glow-text { font-size: 2.2rem; }
+            .message { font-size: 1.2rem; }
+            .photo-frame { width: 150px; height: 150px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Hearts -->
+    <div class="particles" id="particles"></div>
+    
+    <!-- PAGE 1: HEARTFELT APOLOGY -->
+    <section id="page1" class="page page1">
+        <div class="container">
+            <div class="heart-big">❤️</div>
+            <h1>Deepak Kumar Meri Jan</h1>
+            <div class="glow-text">I'm REALLY SORRY 💔</div>
+            <div class="message">
+                Deepak Chanda, I never want to lose you. 
+                <br>I just want us back… the same laughs, the same comfort, everything 😔
+            </div>
+            <button class="btn" onclick="goToPage(2)">Click next… there’s more❤️🌏</button>
+        </div>
+    </section>
+    
+    <!-- PAGE 2: MY MISTAKE -->
+    <section id="page2" class="page page2 hidden">
+        <div class="container">
+            <h2 style="font-family: 'Dancing Script', cursive; font-size: 3rem; color: #ff6b9d; margin-bottom: 2rem;">
+                I Did Wrong 😔
+            </h2>
+            <div class="message" style="font-size: 1.5rem;">
+                I’ve been thinking about everything, and I know I messed up. I’m really, genuinely sorry for hurting you.
+                
+                <br><strong>I promise this will NEVER happen again.</strong>
+                
+            </div>
+            <button class="btn btn-secondary" onclick="goToPage(3)">💕 Our Memories</button>
+        </div>
+    </section>
+    
+    <!-- PAGE 3: PHOTO GALLERY -->
+    <section id="page3" class="page page3 hidden">
+        <div class="container">
+            <h2 style="font-family: 'Dancing Script', cursive; font-size: 3.5rem; color: rgb(120, 3, 83); margin-bottom: 1rem;">
+                Our Beautiful Memories 🥰
+            </h2>
+            <p style="color: rgb(113, 30, 61); font-size: 1.3rem; margin-bottom: 2rem;">
+                I cherish every moment with you...
+            </p>
+            <div class="photo-gallery">
+                <!-- ADD YOUR PHOTOS HERE - Replace URLs -->
+                <div class="photo-frame">
+                    <img src="img1.jpg.jpeg" alt="Our moment 1" onerror="this.src='https://via.placeholder.com/200x200/ff6b9d/ffffff?text=💕+Photo+1'">
+                </div>
+                <div class="photo-frame">
+                    <img src="img2.jpg.jpeg" alt="Our moment 2" onerror="this.src='https://via.placeholder.com/200x200/ff6b9d/ffffff?text=💕+Photo+2'">
+                </div>
+                <div class="photo-frame">
+                    <img src="img3.jpg.jpeg" alt="Our moment 3" onerror="this.src='https://via.placeholder.com/200x200/ff6b9d/ffffff?text=💕+Photo+3'">
+                </div>
+                <div class="photo-frame">
+                    <img src="img4.jpg.jpeg" alt="Our moment 4" onerror="this.src='https://via.placeholder.com/200x200/ff6b9d/ffffff?text=💕+Photo+4'">
+                </div>
+            </div>
+            <button class="btn" onclick="goToPage(4)" style="margin-top: 2rem;">Keep clicking…😘</button>
+        </div>
+    </section>
+    
+    <!-- PAGE 4: PROMISES -->
+    <section id="page4" class="page page4 hidden">
+        <div class="container">
+            <h2 style="font-family: 'Dancing Script', cursive; font-size: 3.5rem; color: #fff; margin-bottom: 2rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">
+                My Promises To You 💖
+            </h2>
+            <div style="text-align: left; max-width: 450px; margin: 0 auto 2rem;">
+                <div class="message" style="font-size: 1.4rem; margin-bottom: 1.5rem; padding: 1.5rem; background: rgba(255,255,255,0.2); border-radius: 15px;">
+                    ✅ <strong>I promise to never hurt you intentionally</strong><br>
+                    ✅ I promise to make you smile, even on your worst days<br>
+                    ✅ I promise to fight for us, not against us<br>
+                    ✅ I will communicate better when I'm upset<br>
+                    ✅ I will love you more every single day 💕
+                </div>
+            </div>
+            <button class="btn btn-secondary" onclick="goToPage(5)"> Forgive Me 💙</button>
+        </div>
+    </section>
+    
+    <!-- PAGE 5: FORGIVENESS -->
+    <section id="page5" class="page page5 hidden">
+        <div class="container">
+            <div style="font-size: 7rem; margin-bottom: 1rem;">💖</div>
+            <h1 style="font-family: 'Dancing Script', cursive; font-size: 4.5rem; color: #333;">
+                Thank You So Much Mera Bacha Deepak! 😍
+            </h1>
+            <div class="message" style="font-size: 1.6rem;">
+                I love you more than anything in this world! 
+                <br><strong>You are my everything 💕</strong>
+                <br>Thank you for forgiving me! 🥰
+            </div>
+            <div style="font-size: 3rem; margin: 2rem 0; animation: bounce 1s infinite;">
+                😘😘😘 MUAAAHHH! 😘😘😘
+            </div>
+            <button class="btn" onclick="restart()" style="font-size: 1.4rem; padding: 25px 70px;">
+                🔄 Show Again
+            </button>
+        </div>
+    </section>
+
+    <script>
+        // Particles
+        setInterval(() => {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDuration = (Math.random() * 5 + 5) + 's';
+            document.getElementById('particles').appendChild(particle);
+            setTimeout(() => particle.remove(), 10000);
+        }, 150);
+        
+        // Navigation
+        function goToPage(n) {
+            document.querySelectorAll('.page').forEach(p => p.classList.add('hidden'));
+            document.getElementById(`page${n}`).classList.remove('hidden');
+            window.scrollTo(0, 0);
+        }
+        
+        function restart() {
+            document.querySelectorAll('.page').forEach(p => p.classList.add('hidden'));
+            document.getElementById('page1').classList.remove('hidden');
+        }
+        
+        // Add kiss sound
+        document.querySelectorAll('.btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const audio = new Audio('data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAo');
+                audio.play().catch(() => {});
+            });
+        });
+    </script>
+</body>
+</html>
